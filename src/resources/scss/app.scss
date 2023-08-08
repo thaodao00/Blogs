@@ -1,6 +1,12 @@
 @import 'variables';
-.test {
-    font-size: 1rem;
-    color: $red-color;
-    background-color: aliceblue;
+
+.box-header {
+    background-color: $bg-color;
+}
+.text-logo {
+    color: $primary-color;
+    font-size: $font-size-text-sub;
+}
+.text-primary {
+    color: $text-color;
 }

@@ -1,9 +1,6 @@
-const postModel = require('../model/post');
+const postModel = require('../models/Post');
+const { multipleMysqlToObject } = require('../../util/mysql');
 class PostController {
-    // Get /post
-    // index(req, res) {
-    //     res.render('new');
-    // }
     getAllPost(req, res) {
         postModel.getAllPost((err, posts) => {
             if (err) {
@@ -11,9 +8,9 @@ class PostController {
                 return;
             }
             res.render('post', { posts: posts });
+            // res.json(posts)
             console.log(posts);
         });
     }
-    //Get /post/:slug
 }
 module.exports = new PostController();

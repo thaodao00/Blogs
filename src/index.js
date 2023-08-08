@@ -7,6 +7,7 @@ const port = 3000;
 
 //route
 const route = require('./routes');
+
 //static file
 app.use(express.static(path.join(__dirname, 'public')));
 //http logger
@@ -27,14 +28,6 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 //route
 route(app);
 
-// app.get('/', (req, res) => {
-//     return res.render('home')
-// })
-
-// app.get('/news', (req, res) => {
-//     return res.render('news')
-// })
-
 app.listen(port, () => {
-    console.log(`Example app http://localhost:${port}`);
+    console.log(`App http://localhost:${port}`);
 });
