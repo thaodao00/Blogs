@@ -7,7 +7,9 @@ const port = 3000;
 
 //route
 const route = require('./routes');
-
+// mysql
+const connection = require('./config/database');
+connection.connect();
 //static file
 app.use(express.static(path.join(__dirname, 'public')));
 //http logger

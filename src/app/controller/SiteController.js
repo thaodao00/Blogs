@@ -1,7 +1,8 @@
+// const connection = require('../../config/database')
 class SiteController {
     // Get /home
     index(req, res) {
-        res.render('home');
+        // res.render('home');
     }
     //Get /search
     search(req, res) {
