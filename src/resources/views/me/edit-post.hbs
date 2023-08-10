@@ -1,0 +1,9 @@
+<div class="mt-4">
+  <h3>Chỉnh sửa bài viết</h3>
+  <form method="POST" action="/me/store-post/{{post.id}}?_method=PUT">
+    <input type="text" name="name" value={{post.name}} />
+    {{!-- <input type="text" name="img" placeholder="URL ảnh" /> --}}
+    <input type="content" name="content" value={{post.content}}/>
+    <button type="submit">Sửa bài viết</button>
+  </form>
+</div>

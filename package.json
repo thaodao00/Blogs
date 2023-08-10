@@ -30,8 +30,11 @@
     }
   },
   "dependencies": {
+    "bootstrap": "^5.3.1",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.1",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
     "mysql": "^2.18.1"
   },
   "devDependencies": {

@@ -1,0 +1,92 @@
+<div class="mt-4">
+  <h3>Bài viết của tôi</h3>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên bài viết</th>
+        <th scope="col">Nội dung</th>
+        <th scope="col">Ngày tạo</th>
+        <th scope="col">Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each posts}}
+        <tr>
+          <th scope="row">{{this.id}}</th>
+          <td>{{this.name}}</td>
+          <td>{{this.content}}</td>
+          <td>{{moment this.created_at}}</td>
+          <td><a
+              href="/me/store-post/{{this.id}}/edit"
+              class="btn btn-link"
+            >Sửa</a>
+            <button
+              class="btn btn-link"
+              data-bs-toggle="modal"
+              data-bs-target="#delete-post-modal"
+              data-id="{{this.id}}"
+            >Xóa</button></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{! Confirm }}
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="delete-post-modal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa bài viết</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Bạn chắc chắn muốn xóa khóa học này?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+
+        <button
+          id="btn-delete"
+          type="submit"
+          class="btn btn-danger"
+        >Xóa</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<form name="delete-post-form" method="POST"></form>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var postId;
+    var deleteForm= document.forms['delete-post-form']; 
+    var btnDelete =document.getElementById('btn-delete');
+  $('#delete-post-modal').on('show.bs.modal',function(event){ 
+    var button =$(event.relatedTarget);
+     postId = button.data('id') 
+     })
+  btnDelete.onclick = function(){
+     deleteForm.action="/me/store-post/"+ postId +"?_method=DELETE" ;
+     deleteForm.submit();
+     
+     } })
+
+</script>
