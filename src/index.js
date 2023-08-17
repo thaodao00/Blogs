@@ -8,6 +8,7 @@ const moment = require('moment');
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Sử dụng express.json() để phân tích dữ liệu JSON
 //route
 const route = require('./routes');
 
